@@ -10,9 +10,9 @@
 		</a>
 		<nav class="w-2/5 sm:w-full flex items-center justify-end sm:justify-center [&_a]:mx-4 [&_a]:text-center">
 			<a href="/">Home</a> |
-			<a href="/notices">Notice</a> |
-			<a href="/voicebanks">Voice Bank</a> |
-			<a href="/reclists">Record List</a>
+			<a href="/notices">Notices</a> |
+			<a href="/voicebanks">Voice Banks</a> |
+			<a href="/reclists">Record Lists</a>
 		</nav>
 	</header>
 
