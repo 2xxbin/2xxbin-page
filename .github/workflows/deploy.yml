@@ -45,4 +45,4 @@ jobs:
           git commit --amend -m "$COMMIT_MESSAGE"  # 커밋 메시지 수정
 
           # GitHub Pages에 강제로 푸시
-          git push --force "https://${GH_TOKEN}@github.com/2xxbin/2xxbin.github.io.git" main
+          git push --force "https://${{ secrets.GH_TOKEN }}@github.com/2xxbin/2xxbin.github.io.git" main
