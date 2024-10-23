@@ -31,6 +31,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           cd dist  # dist 폴더로 이동
+          git branch -m main
           git init
           git add .
 
@@ -38,4 +39,4 @@ jobs:
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)  # 최신 커밋 메시지 가져오기
           git commit -m "$COMMIT_MESSAGE"  # 가져온 메시지로 커밋
 
-          git push --force "https://${GITHUB_TOKEN}@github.com/2xxbin/2xxbin.github.io.git" master  # TOKEN을 자신의 GitHub 토큰으로 변경
+          git push --force "https://${GITHUB_TOKEN}@github.com/2xxbin/2xxbin.github.io.git" main  # TOKEN을 자신의 GitHub 토큰으로 변경
