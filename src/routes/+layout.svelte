@@ -4,15 +4,15 @@
 </script>
 
 <div class="flex flex-col min-h-screen">
-	<header class="w-screen h-20 flex sm:flex-col justify-between sm:justify-center items-center px-8 sm:pt-8">
+	<header class="w-screen h-20 flex sm:flex-col justify-between sm:justify-center items-center px-8 sm:pt-8 sm:mb-12">
 		<a href="/" class="text-xl sm:text-2xl text-center font-bold sm:mb-2">
 			<span>2xxbin</span>
 		</a>
 		<nav class="w-2/5 sm:w-full flex items-center justify-end sm:justify-center [&_a]:mx-4 [&_a]:text-center">
 			<a href="/">Home</a> |
-			<a href="/notice">Notice</a> |
-			<a href="/voicebank">Voice Bank</a> |
-			<a href="/reclist">Record List</a>
+			<a href="/notices">Notice</a> |
+			<a href="/voicebanks">Voice Bank</a> |
+			<a href="/reclists">Record List</a>
 		</nav>
 	</header>
 
@@ -20,7 +20,7 @@
 		{@render children()}
 	</main>
 
-	<footer class="w-screen flex flex-col items-center mb-12">
+	<footer class="w-screen flex flex-col items-center my-12">
 		<hr class="h-1 w-3/4 border-gray-300 mb-8">
 		<nav class="font-medium [&_a]:mx-2">
 			<a href="https://x.com/2xxbin" target="_blank" rel="noopener noreferrer">X</a> |

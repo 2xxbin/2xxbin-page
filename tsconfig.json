@@ -11,9 +11,11 @@
 		"strict": true,
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext",
+		"typeRoots": ["./node_modules/@types", "./types"],
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["src/*"],
+			"@lib/*": ["src/lib/*"],
 			"@routes/*": ["src/routes/*"],
 			"@components/*": ["src/components/*"]
 		}

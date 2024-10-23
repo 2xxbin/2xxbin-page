@@ -9,6 +9,7 @@ export default defineConfig({
 	resolve: {
 		alias: [
 			{find: "@", replacement: "/src"},
+			{find: "@lib", replacement: "/src/lib"},
 			{find: "@routes", replacement: "/src/routes"},
 			{find: "@components", replacement: "/src/components"},
 		]
