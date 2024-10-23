@@ -28,21 +28,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # GitHub의 토큰을 사용
         run: |
-          cd dist  # dist 폴더로 이동
+          cd build
           git init
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-          # 첫 커밋을 생성
           git add .
           git commit -m "Initial commit"
-
-          # 브랜치 이름을 'main'으로 변경
           git branch -M main
 
-          # 이전 커밋 메시지 가져오기
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-          git commit --amend -m "$COMMIT_MESSAGE"  # 커밋 메시지 수정
+          git commit --amend -m "$COMMIT_MESSAGE"
 
-          # GitHub Pages에 강제로 푸시
           git push --force "https://${{ secrets.GH_TOKEN }}@github.com/2xxbin/2xxbin.github.io.git" main
