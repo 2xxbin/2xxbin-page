@@ -19,10 +19,10 @@ jobs:
           node-version: '16'  # Node.js 버전 설정
 
       - name: Install dependencies
-        run: npm install  # 필요에 따라 종속성 설치
+        run: yarn  # 필요에 따라 종속성 설치
 
       - name: Build project
-        run: npm run build  # 빌드 스크립트 실행 (필요에 따라 수정)
+        run: yarn build  # 빌드 스크립트 실행 (필요에 따라 수정)
 
       - name: Deploy to GitHub Pages
         env:
