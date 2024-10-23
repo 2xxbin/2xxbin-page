@@ -10,6 +10,12 @@
 		"sourceMap": true,
 		"strict": true,
 		"module": "NodeNext",
-		"moduleResolution": "NodeNext"
+		"moduleResolution": "NodeNext",
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"],
+			"@routes/*": ["src/routes/*"],
+			"@components/*": ["src/components/*"]
+		}
 	}
 }

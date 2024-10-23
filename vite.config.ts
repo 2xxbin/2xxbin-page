@@ -2,5 +2,12 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit()]
+	plugins: [sveltekit()],
+	resolve: {
+		alias: [
+			{find: "@", replacement: "/src"},
+			{find: "@routes", replacement: "/src/routes"},
+			{find: "@components", replacement: "/src/components"},
+		]
+	}
 });
