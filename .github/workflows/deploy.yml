@@ -29,6 +29,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # GitHub의 토큰을 사용
         run: |
           cd build
+          toych .nojekyll
           git init
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
