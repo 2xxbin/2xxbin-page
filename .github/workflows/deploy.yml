@@ -28,6 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # GitHub의 토큰을 사용
         run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           cd build
           touch .nojekyll
           git init
@@ -38,7 +39,6 @@ jobs:
           git commit -m "Initial commit"
           git branch -M main
 
-          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           git commit --amend -m "$COMMIT_MESSAGE"
 
           git push --force "https://${{ secrets.GH_TOKEN }}@github.com/2xxbin/2xxbin.github.io.git" main
