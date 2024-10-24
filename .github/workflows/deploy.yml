@@ -29,6 +29,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}  # GitHub의 토큰을 사용
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          cp -f README-page.md build/README.md
           cd build
           touch .nojekyll
           git init
