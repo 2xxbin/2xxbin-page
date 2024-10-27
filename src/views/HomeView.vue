@@ -14,7 +14,9 @@ onMounted(async () => {
 
 <template>
   <CenterContainer>
-    <TitleText :is-center-text="true">Home</TitleText>
-    <div v-html="markdownHTMLContent" class="prose"></div>
+    <div>
+      <TitleText :is-center-text="true">Home</TitleText>
+      <div v-html="markdownHTMLContent" class="prose md:prose-lg"></div>
+    </div>
   </CenterContainer>
 </template>

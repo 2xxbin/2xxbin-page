@@ -5,10 +5,8 @@
 
 사용하는 음성 합성 엔진 리스트
 
-  <div class="grid mb-4" style="grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 0.75rem;">
-      <span>Vocalina</span>
-      <span>Deepvocal</span>
-      <span>Vocaloid</span>
-      <span>UTAU</span>
-      <span>Synthesizer V</span>
-  </div>
+- Vocalina
+- Deepvocal
+- Vocaloid
+- UTAU
+- Synthesizer V

@@ -1,6 +1,9 @@
 import hljs from 'highlight.js'
-import { marked, type MarkedOptions } from 'marked'
+import { marked, Renderer, type MarkedOptions } from 'marked'
 import { markedHighlight, type SynchronousOptions } from 'marked-highlight'
+
+// 커스텀 렌더러 생성
+const renderer = new Renderer()
 
 const markedHighlightConfig: SynchronousOptions = {
   langPrefix: 'hljs language-',
@@ -12,8 +15,10 @@ const markedHighlightConfig: SynchronousOptions = {
 
 const markedConfig: MarkedOptions = {
   async: true,
-  pedantic: false,
+  pedantic: true,
   gfm: true,
+  breaks: true,
+  renderer,
 }
 
 export const markdownToHtml = async (markdownContent: string) => {
