@@ -5,7 +5,7 @@ const axiosConfig: CreateAxiosDefaults = {
   baseURL: import.meta.env.BASE_URL,
 }
 
-const localAxios = axios.create(axiosConfig)
+export const localAxios = axios.create(axiosConfig)
 
 export const getMarkdown = async (path: string): Promise<string> => {
   const markdown = await localAxios
