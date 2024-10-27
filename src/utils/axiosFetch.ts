@@ -39,3 +39,11 @@ export const getNotices = async (): Promise<IPost[]> => {
 
   return content
 }
+export const getReclists = async (): Promise<IPost[]> => {
+  const content: IPost[] = await localAxios
+    .get('/md/reclists/reclists.json')
+    .then(res => res.data)
+    .catch(e => console.error(e))
+
+  return content
+}

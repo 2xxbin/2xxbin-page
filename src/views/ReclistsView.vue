@@ -3,24 +3,24 @@ import CenterContainer from '@/components/Container/CenterContainer.vue'
 import PostCardComponent from '@/components/PostCardComponent.vue'
 import TitleText from '@/components/Text/TitleText.vue'
 import type { IPost } from '@/types/IPost.type'
-import { getNotices } from '@/utils/axiosFetch'
+import { getReclists } from '@/utils/axiosFetch'
 import { onMounted, ref, type Ref } from 'vue'
 
-const notices: Ref<IPost[] | undefined> = ref(undefined)
+const reclists: Ref<IPost[] | undefined> = ref(undefined)
 onMounted(async () => {
-  notices.value = await getNotices()
+  reclists.value = await getReclists()
 })
 </script>
 
 <template>
   <CenterContainer>
-    <TitleText>Notices</TitleText>
-    <div v-if="notices">
+    <TitleText>Reclists</TitleText>
+    <div v-if="reclists">
       <PostCardComponent
-        v-for="notice in notices"
-        :key="notice.id"
-        :post="notice"
-        base-url="/notice"
+        v-for="reclist in reclists"
+        :key="reclist.id"
+        :post="reclist"
+        base-url="/reclist"
       />
     </div>
   </CenterContainer>
