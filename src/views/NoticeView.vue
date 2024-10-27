@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CenterContainer from '@/components/Container/CenterContainer.vue'
-import TitleText from '@/components/Text/TitleText.vue'
+import PostDetailComponent from '@/components/PostDetailComponent.vue'
 import type { IMarkdown } from '@/types/markdown.type'
 import { getMarkdown } from '@/utils/axiosFetch'
 import { onMounted, ref, type Ref } from 'vue'
@@ -17,12 +17,9 @@ onMounted(async () => {
 
 <template>
   <CenterContainer>
-    <div v-if="markdownHTMLContent">
-      <TitleText :is-center-text="true">{{
-        markdownHTMLContent.data.title
-      }}</TitleText>
-      <hr class="mb-12" />
-      <div v-html="markdownHTMLContent.html" class="prose md:prose-lg"></div>
-    </div>
+    <PostDetailComponent
+      v-if="markdownHTMLContent"
+      :markdown-html-content="markdownHTMLContent"
+    />
   </CenterContainer>
 </template>
