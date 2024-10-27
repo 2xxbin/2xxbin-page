@@ -16,9 +16,9 @@ const markedConfig: MarkedOptions = {
   gfm: true,
 }
 
-export const markdownToHtml = (markdownContent: string) => {
+export const markdownToHtml = async (markdownContent: string) => {
   marked.use(markedHighlight(markedHighlightConfig))
 
-  const output = marked(markdownContent, markedConfig)
+  const output = await marked(markdownContent, markedConfig)
   return output
 }
