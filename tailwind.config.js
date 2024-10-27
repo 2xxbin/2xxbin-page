@@ -4,6 +4,7 @@ import typography from '@tailwindcss/typography'
 export default {
   content: [
     './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx,md}',
     './src/views/**/*.{vue,js,ts,jsx,tsx,md}',
     './src/components/**/*.{vue,js,ts,jsx,tsx,md}',
   ],

@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <header
     class="h-20 flex sm:flex-col justify-between sm:justify-center items-center px-8 sm:pt-8 sm:mb-12"

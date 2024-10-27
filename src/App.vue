@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import HeaderComponent from './components/HeaderComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
 </script>
 
 <template>
-  <HeaderComponent />
+  <div class="flex flex-col min-h-screen">
+    <HeaderComponent />
 
-  <RouterView />
+    <main class="flex-1">
+      <RouterView />
+    </main>
+
+    <FooterComponent />
+  </div>
 </template>
