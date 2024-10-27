@@ -1,0 +1,46 @@
+name: Deploy Vite Vue Project to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 레포지토리 체크아웃
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Node.js 버전 설정
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20' # 프로젝트에 맞는 Node.js 버전 사용
+
+      # 3. 종속성 설치 및 Vite 빌드
+      - name: Install dependencies and build
+        run: |
+          yarn install
+          yarn build
+
+      - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} # GitHub의 토큰을 사용
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          cd dist
+          touch .nojekyll
+          git init
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+          git add .
+          git commit -m "Initial commit"
+          git branch -M main
+
+          git commit --amend -m "$COMMIT_MESSAGE"
+
+          git push --force "https://${{ secrets.GH_TOKEN }}@github.com/2xxbin/2xxbin.github.io.git" main
