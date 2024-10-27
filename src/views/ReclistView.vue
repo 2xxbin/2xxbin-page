@@ -9,7 +9,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const markdownHTMLContent: Ref<IMarkdown | undefined> = ref()
 onMounted(async () => {
-  const path = `/md/notices/${route.params.id}.md`
+  const path = `/md/reclists/${route.params.id}.md`
   markdownHTMLContent.value = await getMarkdown(path)
   console.log(markdownHTMLContent)
 })
