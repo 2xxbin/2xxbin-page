@@ -9,6 +9,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
     },
+    {
+      path: '/voicebanks',
+      name: 'voicebanks',
+      component: () => import('@/views/VoiceBanksView.vue'),
+    },
   ],
 })
 
