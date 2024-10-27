@@ -1,7 +1,3 @@
 <template>
-  <div class="flex justify-center">
-    <div class="w-[85%] break-keep">
-      <slot />
-    </div>
-  </div>
+  <div class="w-screen flex flex-col items-center"><slot /></div>
 </template>

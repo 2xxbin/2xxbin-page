@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import CenterContainer from '@/components/Container/CenterContainer.vue'
 import TitleText from '@/components/Text/TitleText.vue'
 import { localAxios } from '@/utils/axiosFetch'
 import { onMounted, onBeforeUnmount, ref } from 'vue'
@@ -49,9 +50,8 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="w-full flex flex-col items-center">
+  <CenterContainer>
     <TitleText :is-center-text="true">VoiceBanks</TitleText>
-
     <div
       v-if="voiceBanks.length > 0"
       class="grid gap-6"
@@ -81,5 +81,5 @@ onBeforeUnmount(() => {
     </div>
 
     <div v-else>Loading...</div>
-  </div>
+  </CenterContainer>
 </template>

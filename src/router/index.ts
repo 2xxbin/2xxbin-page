@@ -14,6 +14,11 @@ const router = createRouter({
       name: 'voicebanks',
       component: () => import('@/views/VoiceBanksView.vue'),
     },
+    {
+      path: '/voicebank/:vbname',
+      name: 'voicebank',
+      component: () => import('@/views/VoiceBankView.vue'),
+    },
   ],
 })
 

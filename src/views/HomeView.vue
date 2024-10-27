@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CenterContainer from '@/components/Container/CenterContainer.vue'
+import Weight85Container from '@/components/Container/Weight85Container.vue'
 import TitleText from '@/components/Text/TitleText.vue'
 import { getMarkdown } from '@/utils/axiosFetch'
 import { onMounted, ref } from 'vue'
@@ -13,10 +13,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <CenterContainer>
+  <Weight85Container>
     <div>
       <TitleText :is-center-text="true">Home</TitleText>
       <div v-html="markdownHTMLContent" class="prose md:prose-lg"></div>
     </div>
-  </CenterContainer>
+  </Weight85Container>
 </template>
