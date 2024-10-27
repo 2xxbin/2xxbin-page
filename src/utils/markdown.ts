@@ -1,8 +1,11 @@
+import type { IMarkdown } from '@/types/markdown.type'
 import hljs from 'highlight.js'
 import { marked, Renderer, type MarkedOptions } from 'marked'
 import { markedHighlight, type SynchronousOptions } from 'marked-highlight'
+import markedHookFrontmatter from 'marked-hook-frontmatter'
+import markedSequentialHooks from 'marked-sequential-hooks'
+import { type Options as MarkedSequentialHooksConfig } from 'marked-sequential-hooks'
 
-// 커스텀 렌더러 생성
 const renderer = new Renderer()
 
 const markedHighlightConfig: SynchronousOptions = {
@@ -13,6 +16,11 @@ const markedHighlightConfig: SynchronousOptions = {
   },
 }
 
+const markedSequentialHooksConfig: MarkedSequentialHooksConfig = {
+  markdownHooks: [markedHookFrontmatter()],
+  htmlHooks: [(html, data) => JSON.stringify({ html, data })],
+}
+
 const markedConfig: MarkedOptions = {
   async: true,
   pedantic: true,
@@ -21,9 +29,13 @@ const markedConfig: MarkedOptions = {
   renderer,
 }
 
-export const markdownToHtml = async (markdownContent: string) => {
+export const markdownToHtml = async (
+  markdownContent: string,
+): Promise<IMarkdown> => {
   marked.use(markedHighlight(markedHighlightConfig))
+  marked.use(markedSequentialHooks(markedSequentialHooksConfig))
 
   const output = await marked(markdownContent, markedConfig)
-  return output
+  console.log(output)
+  return JSON.parse(output)
 }

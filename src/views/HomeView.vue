@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import Weight85Container from '@/components/Container/Weight85Container.vue'
+import CenterContainer from '@/components/Container/CenterContainer.vue'
 import TitleText from '@/components/Text/TitleText.vue'
+import type { IMarkdown } from '@/types/markdown.type'
 import { getMarkdown } from '@/utils/axiosFetch'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, type Ref } from 'vue'
 
-const markdownHTMLContent = ref('')
+const markdownHTMLContent: Ref<IMarkdown | undefined> = ref()
 onMounted(async () => {
   const path = '/md/home.md'
   markdownHTMLContent.value = await getMarkdown(path)
@@ -13,10 +14,14 @@ onMounted(async () => {
 </script>
 
 <template>
-  <Weight85Container>
+  <CenterContainer>
     <div>
       <TitleText :is-center-text="true">Home</TitleText>
-      <div v-html="markdownHTMLContent" class="prose md:prose-lg"></div>
+      <div
+        v-if="markdownHTMLContent"
+        v-html="markdownHTMLContent.html"
+        class="flex flex-col items-center prose md:prose-lg"
+      ></div>
     </div>
-  </Weight85Container>
+  </CenterContainer>
 </template>
