@@ -1,15 +1,9 @@
 <script setup lang="ts">
 import CenterContainer from '@/components/Container/CenterContainer.vue'
+import type { IVoiceBank } from '@/types/IVoiceBank.type'
 import TitleText from '@/components/Text/TitleText.vue'
 import { localAxios } from '@/utils/axiosFetch'
 import { onMounted, onBeforeUnmount, ref } from 'vue'
-
-interface IVoiceBank {
-  korName: string
-  engName: string
-  route: string
-  id: string
-}
 
 const voiceBanks = ref<Array<IVoiceBank>>([]) // ref로 반응형으로 설정
 const columnCSS = ref<number>(3) // ref로 반응형으로 설정

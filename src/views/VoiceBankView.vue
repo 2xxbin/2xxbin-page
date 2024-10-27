@@ -1,44 +1,9 @@
 <script setup lang="ts">
 import CenterContainer from '@/components/Container/CenterContainer.vue'
-import TitleText from '@/components/Text/TitleText.vue'
+import type { IVoiceBankData } from '@/types/IVoiceBankData.type'
 import { getVoiceBankData } from '@/utils/axiosFetch'
 import { onMounted, ref, type Ref } from 'vue'
 import { useRoute } from 'vue-router'
-
-interface IVoiceBanksContentStaffData {
-  name: string
-  position: string
-  contact: { text: string; link: string }
-}
-
-interface IVoiceBanksContentData {
-  name: string
-  illust: string
-  demoYoutubeID: string
-  downloadLink: string
-  explaination: string[]
-  staff: IVoiceBanksContentStaffData[]
-}
-
-interface IVoiceBanksData {
-  category: string
-  content: IVoiceBanksContentData[]
-}
-
-interface IVoiceBankData {
-  korName: string
-  engName: string
-  hashTag: string[]
-  gender: string
-  age: number
-  height: number
-  weight: number
-  like: string[]
-  unLike: string[]
-  portrait: string
-  description: string[]
-  voiceBanks: IVoiceBanksData[]
-}
 
 const route = useRoute()
 const voiceBank: Ref<IVoiceBankData | undefined> = ref(undefined)
@@ -51,49 +16,6 @@ onMounted(async () => {
 <template>
   <CenterContainer>
     <div v-if="voiceBank" class="w-[90%]">
-      <div class="flex sm:flex-col">
-        <img
-          :src="voiceBank.portrait"
-          :alt="voiceBank.engName"
-          class="h-[70vh] object-contain"
-        />
-        <div class="flex flex-col sm:items-center md:ml-4 mt-10 sm:text-center">
-          <TitleText
-            >{{ voiceBank.korName }} | {{ voiceBank.engName }}</TitleText
-          >
-          <ul class="flex mt-4 [&_li]:mr-1">
-            <li v-for="tag in voiceBank.hashTag" :key="tag">#{{ tag }}</li>
-          </ul>
-          <ul class="mt-8 [&_li]:my-2">
-            <li>성별: {{ voiceBank.gender }}</li>
-            <li>나이: {{ voiceBank.age }}</li>
-            <li>키: {{ voiceBank.weight }}</li>
-            <li>몸무게: {{ voiceBank.height }}</li>
-            <li>키: {{ voiceBank.weight }}</li>
-            <li>
-              좋아하는 것:
-              <span v-for="(like, index) in voiceBank.like" :key="like"
-                >{{ like
-                }}{{ index < voiceBank.like.length - 1 ? `,&nbsp;` : `` }}</span
-              >
-            </li>
-            <li>
-              싫어하는 것:
-              <span v-for="(unLike, index) in voiceBank.unLike" :key="unLike"
-                >{{ unLike
-                }}{{
-                  index < voiceBank.unLike.length - 1 ? `,&nbsp;` : ``
-                }}</span
-              >
-            </li>
-          </ul>
-          <p
-            class="mt-12 leading-loose"
-            v-html="voiceBank.description.join('<br/>')"
-          ></p>
-        </div>
-      </div>
-
       <div
         class="sm:mt-20"
         v-for="(voiceBanks, voiceBanksIndex) in voiceBank.voiceBanks"
