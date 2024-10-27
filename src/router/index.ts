@@ -29,6 +29,16 @@ const router = createRouter({
       name: 'notice',
       component: () => import('@/views/NoticeView.vue'),
     },
+    {
+      path: '/reclists',
+      name: 'reclists',
+      component: () => import('@/views/ReclistsView.vue'),
+    },
+    {
+      path: '/reclist/:id',
+      name: 'reclist',
+      component: () => import('@/views/ReclistView.vue'),
+    },
   ],
 })
 
