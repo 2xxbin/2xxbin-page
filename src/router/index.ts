@@ -19,6 +19,11 @@ const router = createRouter({
       name: 'voicebank',
       component: () => import('@/views/VoiceBankView.vue'),
     },
+    {
+      path: '/notices',
+      name: 'notices',
+      component: () => import('@/views/NoticesView.vue'),
+    },
   ],
 })
 
