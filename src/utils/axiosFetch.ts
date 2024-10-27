@@ -5,19 +5,32 @@ import type { IVoiceBankData } from '@/types/IVoiceBankData.type'
 import type { IPost } from '@/types/IPost.type'
 import type { IMarkdown } from '@/types/markdown.type'
 
-const axiosConfig: CreateAxiosDefaults = {
+const axiosConfig: CreateAxiosDefaults = {}
+
+export const localAxios = axios.create({
+  ...axiosConfig,
   baseURL: import.meta.env.BASE_URL,
-}
+})
+export const githubAxios = axios.create({
+  ...axiosConfig,
+  baseURL: 'https://api.github.com/repos/2xxbin/2xxbin.github.io/contents',
+})
 
-export const localAxios = axios.create(axiosConfig)
-
-export const getMarkdown = async (path: string): Promise<IMarkdown> => {
-  const markdown = await localAxios
+export const getMarkdown = async (
+  path: string,
+): Promise<IMarkdown | undefined> => {
+  const markdown = await githubAxios
     .get(path)
-    .then(res => res.data)
+    .then(res =>
+      new TextDecoder('utf-8').decode(
+        Uint8Array.from(atob(res.data.content), c => c.charCodeAt(0)),
+      ),
+    )
     .catch((e: AxiosError) => console.error(e))
 
-  return await markdownToHtml(markdown)
+  if (markdown) {
+    return await markdownToHtml(markdown)
+  }
 }
 
 export const getVoiceBankData = async (
