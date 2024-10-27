@@ -8,11 +8,13 @@ const { markdownHtmlContent } = defineProps<{
 </script>
 
 <template>
-  <div v-if="markdownHtmlContent">
+  <div class="flex flex-col items-center">
     <TitleText :is-center-text="true">{{
       markdownHtmlContent.data.title
     }}</TitleText>
-    <hr class="mb-12" />
-    <div v-html="markdownHtmlContent.html" class="prose md:prose-lg"></div>
+    <div
+      v-html="markdownHtmlContent.html"
+      class="prose md:prose-lg max-w-[80%] mt-12"
+    ></div>
   </div>
 </template>
