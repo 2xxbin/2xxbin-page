@@ -1,7 +1,7 @@
 <template>
   <footer class="w-full flex flex-col items-center my-12">
     <hr class="h-1 w-3/4 border-gray-300 mb-8" />
-    <nav class="font-medium [&_a]:mx-2">
+    <nav class="font-medium [&_a]:mx-2 [&_a]:sm:text-sm">
       <a href="https://x.com/2xxbin" target="_blank" rel="noopener noreferrer"
         >X</a
       >
@@ -27,7 +27,7 @@
         >Github</a
       >
     </nav>
-    <p class="break-keep text-center mt-6 text-sm">
+    <p class="break-keep text-center mt-6 text-sm sm:text-xs">
       © 2024 2xxbin. All content, images, and designs are the property of
       2xxbin. Unauthorized use is prohibited.
     </p>

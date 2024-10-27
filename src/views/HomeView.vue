@@ -20,7 +20,7 @@ onMounted(async () => {
       <div
         v-if="markdownHTMLContent"
         v-html="markdownHTMLContent.html"
-        class="flex flex-col items-center prose md:prose-lg"
+        class="prose md:prose-lg max-w-[80%] sm:max-w-[95%] mt-12 break-keep text-base sm:leading-loose"
       ></div>
     </div>
   </CenterContainer>

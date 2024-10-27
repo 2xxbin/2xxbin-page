@@ -17,7 +17,7 @@ onMounted(async () => {
 
 <template>
   <CenterContainer>
-    <div v-if="voiceBank" class="w-[90%]">
+    <div v-if="voiceBank" class="w-[90%] sm:w-full">
       <IntroduceVoiceBank :voice-bank="voiceBank" />
       <DownloadVoiceBank :voice-bank="voiceBank" />
     </div>

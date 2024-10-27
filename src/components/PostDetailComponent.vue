@@ -14,7 +14,7 @@ const { markdownHtmlContent } = defineProps<{
     }}</TitleText>
     <div
       v-html="markdownHtmlContent.html"
-      class="prose md:prose-lg max-w-[80%] mt-12"
+      class="prose md:prose-lg max-w-[80%] sm:max-w-[95%] mt-12 break-keep text-base sm:leading-loose"
     ></div>
   </div>
 </template>

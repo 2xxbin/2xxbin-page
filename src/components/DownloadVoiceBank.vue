@@ -25,9 +25,10 @@ const { voiceBank } = defineProps<{ voiceBank: IVoiceBankData }>()
           'md:mr-6': !(contentIndex % 2),
         }"
       >
-        <h3 class="font-bold text-2xl">
+        <h3 class="font-bold text-2xl sm:leading-relaxed">
           {{ content.name }}
-          <span class="mx-2">|</span>
+          <span class="mx-2 sm:hidden">|</span>
+          <br class="md:hidden" />
           <a
             :href="content.downloadLink"
             target="_blank"

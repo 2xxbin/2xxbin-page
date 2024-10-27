@@ -9,7 +9,9 @@ const { isCenterText } = defineProps<{
     :class="[
       'font-bold',
       'text-5xl',
-      ' mb-12',
+      'mb-12',
+      'sm:text-4xl',
+      'sm:mb-6',
       isCenterText ? 'text-center' : '',
     ]"
   >

@@ -6,7 +6,7 @@
       ><span>2xxbin</span></a
     >
     <nav
-      class="w-2/5 sm:w-full flex items-center justify-end sm:justify-center [&_a]:mx-4 [&_a]:text-center"
+      class="w-2/5 sm:w-full flex items-center justify-end sm:justify-center [&_a]:mx-4 [&_a]:text-center [&_a]:sm:text-sm"
     >
       <a href="/">Home</a> | <a href="/notices">Notices</a> |
       <a href="/voicebanks">Voice Banks</a> |

@@ -39,7 +39,7 @@ const { voiceBank } = defineProps<{ voiceBank: IVoiceBankData }>()
         </li>
       </ul>
       <p
-        class="mt-12 leading-loose"
+        class="mt-12 leading-loose break-keep"
         v-html="voiceBank.description.join('<br/>')"
       ></p>
     </div>

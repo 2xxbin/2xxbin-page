@@ -56,7 +56,7 @@ onBeforeUnmount(() => {
       <div
         v-for="voiceBank in voiceBanks"
         :key="voiceBank.id"
-        class="relative aspect-[4/5] h-[500px] w-[400px] flex justify-center items-center group"
+        class="relative aspect-[4/5] md:h-[500px] md:w-[400px] sm:w-[300px] flex justify-center items-center group"
         tabindex="0"
         role="button"
         @click="() => $router.push(`/voicebank/${voiceBank.id}`)"
