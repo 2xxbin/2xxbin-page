@@ -1,3 +1,3 @@
 <template>
-  <div class="w-screen flex flex-col items-center"><slot /></div>
+  <div class="w-full flex flex-col items-center"><slot /></div>
 </template>
